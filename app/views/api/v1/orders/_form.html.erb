@@ -1,0 +1,23 @@
+<%= form_with(model: [@product, @order],url: api_v1_product_orders_path, local: true) do |form| %>
+
+  <div>
+    <%= form.label :product_id %><br>
+    <%= form.collection_select :product_id, Product.all, :id, :name %>
+  </div>
+
+  <div>
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity, value: @order.quantity %>
+  </div>
+
+  <div>
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+
+<% end %>

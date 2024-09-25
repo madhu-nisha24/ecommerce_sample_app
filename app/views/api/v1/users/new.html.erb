@@ -1,0 +1,35 @@
+<div class="page-header"><h1>Register</h1></div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <%= form_with(url: api_v1_users_path, local: true, html: { class: "form" }) do |form| %>
+            <div class="mb-3">
+              <%= form.label :email, class: "form-label" %>
+              <%= form.email_field :email, class: "form-control", placeholder: "Enter your email" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :password, class: "form-label" %>
+              <%= form.password_field :password, class: "form-control", placeholder: "Enter your password" %>
+            </div>
+            <div class="mb-3">
+              <%= form.label :"password confirmation", class: "form-label" %>
+              <%= form.password_field :"password confirmation", class: "form-control", placeholder: "Enter your password again" %>
+            </div>
+
+            <div class="d-grid">
+              <%= form.submit "Register", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="text-center mt-3">
+  <p>Have have an account? <%= link_to 'Log in', api_v1_login_path, class: 'btn btn-success' %></p>
+</div>

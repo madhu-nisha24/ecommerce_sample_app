@@ -1,0 +1,38 @@
+<h1>Categories</h1>
+
+<table class="table">
+  <thead class="thead-light">
+  <tr>
+    <th class="text-center">Category Name</th>
+    <th class="text-center">Description</th>
+    <th class="text-center">Products</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @categories.each do |category| %>
+    <tr>
+      <td class="text-center"><%=category.name %></td>
+      <td class="text-center"><%=category.description %></td>
+      <td class="text-center">
+        <%if category.products.any? %>
+          <ul class="text-center">
+            <% category.products.each do |product| %>
+              <li class="text-center"><%= product.name %></li>
+            <% end %>
+          </ul>
+        <%else %>
+        No product available for this category
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+<% if current_user.role == 'admin' %>
+<%= link_to 'New Category', new_api_v1_category_path, class: 'btn btn-success' %>
+  <%end %>
+
+<br>
+<br>
+<%= link_to 'Product Listing', api_v1_products_path, class: 'btn btn-success mb-3' %>

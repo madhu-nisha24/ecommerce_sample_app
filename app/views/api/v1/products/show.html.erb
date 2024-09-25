@@ -1,0 +1,13 @@
+<h1><%= @product.name %></h1>
+
+<p><%= @product.quantity %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_api_v1_product_path(@product) %></li>
+  <li><%= link_to "Destroy", api_v1_product_path(@product), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+  <%= link_to 'Back to List', api_v1_products_path %>
+
+</ul>

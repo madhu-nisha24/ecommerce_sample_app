@@ -1,0 +1,8 @@
+<h1>Edit Order</h1>
+
+<%= render 'form', order: @order %>
+
+<%= link_to 'Back', api_v1_product_order_path(@order) %>
+
+<br><%= link_to 'Product Listing', api_v1_products_path, class: 'btn btn-success mb-3' %>
+

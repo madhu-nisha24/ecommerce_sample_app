@@ -1,0 +1,67 @@
+<%= form_with(url: api_v1_products_path, method: :get, local: true) do %>
+  <div>
+    <%= label_tag :query, "Search for Products:" %>
+    <%= text_field_tag :query, params[:query], placeholder: "Enter product name...", id: "search-box"%>
+
+    <datalist id="product-suggestions">
+      <% @products.each do |product| %>
+        <option value="<%= product.name %>"></option>
+      <% end %>
+    </datalist>
+
+    <%= submit_tag "Search", id: "search-button" %>
+  </div>
+<% end %>
+
+<% if params[:query].present? %>
+  <%= link_to 'Back to Product Listing', api_v1_products_path, class: 'btn btn-success mb-3' %>
+<% end %>
+<br><br>
+<%= button_to 'View orders', api_v1_orders_path, method: :get, class: 'btn btn-secondary btn-sm ml-2' %>
+
+
+<h1>Products</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Product Name</th>
+    <th>Quantity</th>
+    <th>Category</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <% if @products.any? %>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.quantity %></td>
+        <td><%= product.category.name %></td>
+        <td><%= link_to 'Order now', new_api_v1_product_order_path(product), class: 'btn btn-primary btn-sm ml-2' %></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <td colspan="4">No products found.</td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<h2>Frequently Searched Products</h2>
+<% if @frequent_searches.any? %>
+  <ul>
+    <% @frequent_searches.each do |product| %>
+      <li><%= product.name %> - <%= product.quantity %> in stock</li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No frequently searched products.</p>
+<% end %>
+<% if current_user.role == 'admin' %>
+<%= link_to 'New Product', new_api_v1_product_path, class: 'btn btn-success' %>
+  <%end %>
+<br><br>
+<%= link_to 'Go to Category Listing', api_v1_categories_path, class: 'btn btn-success mb-3' %>

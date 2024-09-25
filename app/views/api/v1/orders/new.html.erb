@@ -1,0 +1,29 @@
+<h1>New Order</h1>
+
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+<br>
+<br>
+<%= render 'form', order: @order %>
+
+<%= debug(params[:order]) %>
+
+<%= debug(@order.quantity) %>
+<%= debug(@product.id) %>
+
+<% if @product && @order && @order.quantity.present? && @order.quantity > @product.quantity %>
+<%= button_to 'Notify Me', api_v1_product_orders_path(@product, @order), method: :post, class: 'btn btn-warning' %>
+<% end %>
+
+
+<%= link_to 'Back to Product listing', api_v1_products_path, class: 'btn btn-success' %>
+

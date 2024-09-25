@@ -1,0 +1,20 @@
+<h1>Order Details</h1>
+
+<p>
+  <strong>Product:</strong>
+  <%= @order.product.name %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @order.quantity %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @order.status %>
+</p>
+
+<%= link_to 'Edit', edit_api_v1_product_order_path(@order) %> |
+<br><%= link_to 'Product Listing', api_v1_products_path, class: 'btn btn-success mb-3' %>
+

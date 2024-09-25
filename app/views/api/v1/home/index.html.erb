@@ -1,0 +1,13 @@
+<h1 class="text-center">Welcome to Our Store</h1>
+
+<div class="text-center mt-4">
+  <% if logged_in? %>
+    <% if current_user.role == 'admin' %>
+      <%= link_to 'Manage Categories', api_v1_categories_path, class: 'btn btn-success btn-lg mb-3' %>
+      <%= link_to 'Manage Products', api_v1_products_path, class: 'btn btn-primary btn-lg' %>
+    <% elsif current_user.role == 'customer' %>
+      <%= link_to 'View Categories', api_v1_categories_path, class: 'btn btn-success btn-lg mb-3' %>
+      <%= link_to 'View Products', api_v1_products_path, class: 'btn btn-primary btn-lg' %>
+    <% end %>
+  <% end %>
+</div>
