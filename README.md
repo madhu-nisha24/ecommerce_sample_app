@@ -23,6 +23,6 @@
         - Enter the quantity and place order against a product
 
 ### Additional Features
-- **User Authentication and Authorization**: Secure login system to protect user accounts.
+- **User Authentication and Authorization**: Secure login system to protect user accounts based on authlogic.
 - **Order History**: Customers can view their past orders.
 
