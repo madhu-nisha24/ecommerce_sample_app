@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_25_083455) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_25_100229) do
   create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -28,7 +28,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_25_083455) do
   create_table "orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", options: "/*!50100 TABLESPACE `innodb_system` */ ENGINE=InnoDB", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.integer "quantity"
-    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"

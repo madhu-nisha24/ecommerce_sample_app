@@ -46,7 +46,9 @@ class Api::V1::ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
+    debugger
     if @product.update(product_params)
+      debugger
       redirect_to api_v1_product_path(@product)
     else
       render :edit, status: :unprocessable_entity

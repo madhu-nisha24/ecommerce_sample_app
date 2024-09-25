@@ -39,7 +39,17 @@
         <td><%= product.name %></td>
         <td><%= product.quantity %></td>
         <td><%= product.category.name %></td>
-        <td><%= link_to 'Order now', new_api_v1_product_order_path(product), class: 'btn btn-primary btn-sm ml-2' %></td>
+        <td><%= link_to 'Order now', new_api_v1_product_path, class: 'btn btn-primary btn-sm ml-2' %></td>
+        <td>
+          <% if current_user.role == 'admin'%>
+            <%= link_to 'Edit', edit_api_v1_product_path(product) %>
+          <%end%>
+        </td>
+        <td>
+          <%if current_user.role =='admin'%>
+          <%= link_to 'Destroy', api_v1_product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%end%>
+        </td>
       </tr>
     <% end %>
   <% else %>
