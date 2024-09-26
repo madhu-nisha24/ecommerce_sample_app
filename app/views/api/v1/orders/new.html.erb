@@ -15,10 +15,6 @@
 <br>
 <%= render 'form', order: @order %>
 
-<%= debug(params[:order]) %>
-
-<%= debug(@order.quantity) %>
-<%= debug(@product.id) %>
 
 <% if @product && @order && @order.quantity.present? && @order.quantity > @product.quantity %>
 <%= button_to 'Notify Me', api_v1_product_orders_path(@product, @order), method: :post, class: 'btn btn-warning' %>

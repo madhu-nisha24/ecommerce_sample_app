@@ -3,10 +3,12 @@ class Api::V1::OrdersController < ApplicationController
   before_action :set_product, only: [:index, :new, :create]
 
   def index
-    @orders = Order.where(user_id: session[:user_id])
+    @orders = Order.where(user_id: current_user.id)
+
     respond_to do |format|
-      format.json { @order}
+      format.json { render json: @orders.as_json(only: [:id, :created_at, :total_amount]) }
       format.html { render :index }
+      format.any { render :index }
     end
   end
 
