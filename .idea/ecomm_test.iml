@@ -28,7 +28,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.5.11, RVM: ruby-3.3.3 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="matrix (v0.4.2, RVM: ruby-3.3.3 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="net-http (v0.4.1, RVM: ruby-3.3.3 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="net-pop (v0.1.2, RVM: ruby-3.3.3 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="psych (v5.1.2, RVM: ruby-3.3.3 [global]) [gem]" level="application" />
   </component>
   <component name="RModuleSettingsStorage">
     <LOAD_PATH number="0" />

@@ -12,12 +12,11 @@ class Api::V1::UsersController < ApplicationController
     if not logged_in?
       @user = User.new(users_params)
       @user.role = 'customer'
-      debugger
       if @user.save
             flash[:success] = "Account registered!"
             redirect_to api_v1_login_path, notice: 'Account registered!'
-          else
-            render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
+      else
+            redirect_to new_api_v1_user_path, notice: 'Email already taken. Please register using a different email address'
       end
     else
       redirect_to api_v1_login_path, notice: 'Logout existing account before registering.'
@@ -55,6 +54,6 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def users_params
-    params.require(:user).permit(:email, :password, :role)
+    params.permit(:email, :password, :role)
   end
 end

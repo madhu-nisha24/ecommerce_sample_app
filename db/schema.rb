@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_25_100229) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_30_053400) do
   create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -63,6 +63,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_25_100229) do
     t.string "current_login_ip"
     t.string "last_login_ip"
     t.string "role"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "orders", "products"
