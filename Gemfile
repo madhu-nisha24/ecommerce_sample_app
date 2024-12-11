@@ -9,7 +9,7 @@ gem "authlogic", github: "binarylogic/authlogic", ref: "refs/pull/770/head"
 gem 'scrypt'
 gem "sidekiq"
 gem "mysql2", "0.5.6"
-gem "rails", "~> 7.2.1"
+gem "rails", "~> 7.2.2"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
